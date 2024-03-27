@@ -7,11 +7,11 @@ import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
-from typing import Any, List, Dict
+from typing import Any
 
 
 @ensure_annotations
-def create_directories(path_to_directories: List[Path], verbose: bool=True):
+def create_directories(path_to_directories: list, verbose: bool=True):
     """create list of directories
 
     Args:
@@ -55,7 +55,7 @@ def read_yaml(path_to_yaml: Path) -> ConfigBox:
 
 
 @ensure_annotations
-def save_json(path: Path, data: Dict):
+def save_json(path: Path, data: dict):
     """save json data
 
     Args:
