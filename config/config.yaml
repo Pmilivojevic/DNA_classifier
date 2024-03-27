@@ -4,3 +4,8 @@ data_ingestion:
   root_dir: artifacts/data_ingestion
   source_URL: https://github.com/krishnaik06/DNA-Sequencing-Classifier/raw/master/human_data.txt
   local_data_file: artifacts/data_ingestion/human_data.txt
+
+data_validation:
+  root_dir: artifacts/data_validation
+  dwn_data_file: artifacts/data_ingestion/human_data.txt
+  STATUS_FILE: artifacts/data_validation/status.txt

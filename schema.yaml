@@ -1,1 +1,6 @@
-key: val
+COLUMNS:
+  sequence: object
+  class: int64
+
+TARGET_COLUMN:
+  name: class
