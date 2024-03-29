@@ -43,3 +43,17 @@ class ConfigurationManager:
         )
 
         return data_validation_config
+
+    def get_data_tranformation_config(self) -> DataTransformationConfig:
+        config = self.config.data_transformation
+        params = self.params.count_vectorizer
+        
+        create_directories([config.root_dir])
+        
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            ngram=params.ngram
+        )
+        
+        return data_transformation_config

@@ -9,3 +9,7 @@ data_validation:
   root_dir: artifacts/data_validation
   dwn_data_file: artifacts/data_ingestion/human_data.txt
   STATUS_FILE: artifacts/data_validation/status.txt
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/human_data.txt

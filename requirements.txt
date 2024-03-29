@@ -14,5 +14,7 @@ types-PyYAML
 # Flask-Cors
 python-dotenv
 pycaret
+sentence-transformers
+scipy
 
 -e .

@@ -15,3 +15,11 @@ class DataValidationConfig:
     dwn_data_file: Path
     STATUS_FILE: Path
     all_schema: dict
+
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    data_path: Path
+    ngram: int
+    
