@@ -46,14 +46,47 @@ class ConfigurationManager:
 
     def get_data_tranformation_config(self) -> DataTransformationConfig:
         config = self.config.data_transformation
-        params = self.params.count_vectorizer
         
         create_directories([config.root_dir])
         
         data_transformation_config = DataTransformationConfig(
             root_dir=config.root_dir,
-            data_path=config.data_path,
-            ngram=params.ngram
+            data_path=config.data_path
         )
         
         return data_transformation_config
+
+    def get_model_trainer_config(self) -> ModelTrainerConfig:
+        config = self.config.model_trainer
+        params = [d[1] for d in list(self.params.items())]
+        schema = self.schema.TARGET_COLUMN
+        
+        create_directories([config.root_dir])
+        
+        model_trainer_config = ModelTrainerConfig(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            params=params,
+            target_column=schema.name
+        )
+        
+        return model_trainer_config
+    
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        target = self.schema.TARGET_COLUMN
+        
+        create_directories([config.root_dir])
+        
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir=config.root_dir,
+            test_data_path=config.test_data_path,
+            model_path=config.model_path,
+            metric_file_name=config.metric_file_name,
+            cm_name=config.cm_name,
+            target_column=target.name
+        )
+        
+        return model_evaluation_config

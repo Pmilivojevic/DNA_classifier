@@ -1,2 +1,20 @@
-count_vectorizer:
-  ngram: 5
+LogisticRegression:
+  preprocessor__ngram_range: [
+    !!python/tuple [3,3],
+    !!python/tuple [4,4],
+    !!python/tuple [5,5],
+    !!python/tuple [6,6]
+  ]
+  classifier__penalty: ['l2', 'elasticnet']
+  classifier__C: [0.1, 1, 10]
+  classifier__solver: ['lbfgs', 'liblinear']
+
+MultinomialNB:
+  preprocessor__ngram_range: [
+    !!python/tuple [3,3],
+    !!python/tuple [4,4],
+    !!python/tuple [5,5],
+    !!python/tuple [6,6]
+  ]
+  classifier__alpha: [0.1, 0.5, 1.0]
+  classifier__force_alpha: [True, False]
